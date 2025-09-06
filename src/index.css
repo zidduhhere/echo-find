@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('./assets/fonts/instrument-sans.ttf') format('truetype');
+
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@theme {
+    font-family: 'Instrument Sans', sans-serif;
+    --font-isans: 'Instrument Sans', sans-serif;
+
+}
+
+
+:root {
+    /* Primary theme palette based on #3a5a40 */
+    --color-primary-50: #f0f4f1;
+    --color-primary-100: #dbe8de;
+    --color-primary-200: #b8d1bf;
+    --color-primary-300: #90b89a;
+    --color-primary-400: #6a9d75;
+    --color-primary-500: #3a5a40;
+    /* Base color */
+    --color-primary-600: #335139;
+    --color-primary-700: #2b4431;
+    --color-primary-800: #243729;
+    --color-primary-900: #1e2e23;
+    --color-primary-950: #0f1912;
+
+    /* Secondary complementary colors */
+    --color-secondary-50: #f9f7f4;
+    --color-secondary-100: #f1ede6;
+    --color-secondary-200: #e2d9cc;
+    --color-secondary-300: #cfc0a8;
+    --color-secondary-400: #b8a082;
+    --color-secondary-500: #a68865;
+    --color-secondary-600: #987a59;
+    --color-secondary-700: #7f644c;
+    --color-secondary-800: #685241;
+    --color-secondary-900: #544336;
+
+    /* Accent colors for highlights */
+    --color-accent-50: #fdf4f3;
+    --color-accent-100: #fce7e6;
+    --color-accent-200: #f9d4d2;
+    --color-accent-300: #f4b5b1;
+    --color-accent-400: #ec8983;
+    --color-accent-500: #e06259;
+    --color-accent-600: #cc4539;
+    --color-accent-700: #ab352b;
+    --color-accent-800: #8d2f28;
+    --color-accent-900: #752c27;
+}
+
+/* Custom utilities */
+.text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
