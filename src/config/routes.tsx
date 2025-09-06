@@ -11,6 +11,7 @@ import ProductDetail from '../pages/product/ProductDetail';
 import { ProductForm } from '../components/products/ProductForm';
 import Cart from '../pages/cart/Cart';
 import PurchaseHistory from '../pages/history/PurchaseHistory';
+import SearchPage from '../pages/SearchPage';
 
 // Category Pages
 import CategoryIndex from '../pages/category/CategoryIndex';
@@ -84,6 +85,13 @@ export const publicRoutes: RouteConfig[] = [
         showInNav: true,
         navLabel: 'Orders',
         icon: 'package'
+    },
+    {
+        path: '/search',
+        element: <SearchPage />,
+        title: 'Search Results - EcoFinds',
+        description: 'Search for sustainable and eco-friendly products',
+        showInNav: false
     },
     // Category Routes
     {

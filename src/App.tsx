@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import { SearchProvider } from './context/SearchContext';
 import Navbar from './components/layout/Navbar';
 import { AppRoutes } from './components/routing/AppRoutes';
 
@@ -24,13 +25,15 @@ const AppContent = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </CartProvider>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <CartProvider>
+          <SearchProvider>
+            <AppContent />
+          </SearchProvider>
+        </CartProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

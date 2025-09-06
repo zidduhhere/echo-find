@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, Filter, QrCode, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useSearch } from '../../context/SearchContext';
 
 interface SearchBarProps {
     value: string;
@@ -12,6 +14,7 @@ interface SearchBarProps {
     variant?: 'default' | 'hero' | 'navbar';
     size?: 'sm' | 'md' | 'lg';
     showActions?: boolean;
+    autoSearch?: boolean; // Automatically search as you type
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
@@ -24,11 +27,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
     className = "",
     variant = 'default',
     size = 'md',
-    showActions = true
+    showActions = true,
+    autoSearch = false
 }) => {
     const [showFilterOverlay, setShowFilterOverlay] = useState(false);
     const [showQrNotification, setShowQrNotification] = useState(false);
     const filterRef = useRef<HTMLDivElement>(null);
+    const navigate = useNavigate();
+    const { performSearch } = useSearch();
 
     useEffect(() => {
         // Close filter when clicking outside
@@ -42,10 +48,25 @@ const SearchBar: React.FC<SearchBarProps> = ({
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    // Auto-search effect
+    useEffect(() => {
+        if (autoSearch && value.trim().length > 2) {
+            const debounceTimer = setTimeout(() => {
+                performSearch(value);
+            }, 300);
+
+            return () => clearTimeout(debounceTimer);
+        }
+    }, [value, autoSearch, performSearch]);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (onSubmit) {
             onSubmit(e);
+        } else if (value.trim()) {
+            // Default behavior if no onSubmit provided
+            performSearch(value);
+            navigate(`/search?q=${encodeURIComponent(value.trim())}`);
         }
     };
 
@@ -121,6 +142,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
                             focus:outline-none focus:ring-2 
                             transition-colors
                         `}
+                        autoComplete="off"
+                        role="search"
                     />
                     {showActions && (
                         <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
