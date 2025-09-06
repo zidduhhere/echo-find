@@ -1,0 +1,146 @@
+/* Category card pattern styles */
+.card-with-pattern {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add dot patterns via pseudo-elements instead of background-image */
+.dot-pattern-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-1::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+    background-size: 30px 30px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-2::after {
+    content: '';
+    position: absolute;
+    bottom: -5%;
+    left: -5%;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+                      radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px, 20px 20px;
+    background-position: 0 0, 20px 20px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    z-index: 1;
+    pointer-events: none;
+    pointer-events: none;
+}
+
+.dot-pattern-4::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-5::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 8%, transparent 8%),
+                      radial-gradient(rgba(255, 255, 255, 0.15) 8%, transparent 8%);
+    background-position: 0 0, 16px 16px;
+    background-size: 32px 32px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.dot-pattern-5::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.09);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Section background pattern */
+.section-dot-pattern {
+    position: relative;
+}
+
+.section-dot-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+    pointer-events: none;
+}

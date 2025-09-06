@@ -20,6 +20,9 @@ const Home: React.FC = () => {
             {/* Featured Products Section */}
             <FeaturedProductsSection />
 
+            {/* Divider */}
+            <div className="w-full border-t border-gray-200"></div>
+
             {/* All Products Section */}
             <ProductListSection />
         </div>
